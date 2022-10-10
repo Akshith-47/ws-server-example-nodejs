@@ -40,5 +40,15 @@ function serverBroadcast(message) {
         }
     });
 }
-
+const {PythonShell}=require('python-shell')
+            const readline=require("readline-sync")
+            let a=Number(readline.question());
+            let options={
+            scriptPath:"",
+            args:[a],
+            }
+            PythonShell.run("client.py",options,(err,res)=>{
+            if (err)console.log(err);
+            if (res)console.log(res);
+});
 console.log('The server is running and waiting for connections');
